@@ -1,0 +1,58 @@
+:root {
+	--main-bg-color: #eaf6f6;
+	--main-font-color: #4a4a4a;
+	--main-color-dark: #66bfbf;
+	--main-color-medium: #eaf6f6;
+	--input-placeholder: #bac3c3;
+	--header-height: 105px;
+}
+
+html {
+	background: var(--main-bg-color);
+	margin: 0px;
+	padding: 0px;
+	display: grid;
+	grid-template-rows: 1fr;
+	font-family: 'Roboto', sans-serif;
+	color: var(--main-font-color);
+	height: 100vh;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	display: grid;
+	grid-template-rows: 1fr;
+}
+
+main {
+	display: grid;
+	grid-template-rows: 1fr;
+}
+
+#sapper {
+	display: grid;
+	grid-template-rows: 1fr;
+}
+
+/* Mobile first queries */
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+}
