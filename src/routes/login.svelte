@@ -1,5 +1,7 @@
 <script>
-	let email = null;
+	import authStore from '../stores/auth-store';
+
+	let email = '1@1.com';
 	$: isValid = validateEmail(email);
 
 	function validateEmail(email) {
@@ -8,11 +10,7 @@
 	}
 
 	function login() {
-		// take the given email, send it to API
-		// while the api is checking validity of email, show a loading screen
-		// if there is success, show the success message
-		// if failure, show failure message with try again button
-		console.log('login', email);
+		authStore.login(email);
 	}
 </script>
 
