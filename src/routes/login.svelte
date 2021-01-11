@@ -2,6 +2,8 @@
 	import {goto, stores} from '@sapper/app';
 	import authStore from '../stores/auth-store';
 
+	import Loading from '../components/Loading.svelte';
+
 	const {session} = stores();
 
 	let email = '1@1.com';
@@ -20,9 +22,8 @@
 <svelte:head>
 	<title>Heart Healing Hub - Login</title>
 </svelte:head>
-
 {#if $authStore.loading}
-	we are loading
+	<Loading message="Sending email." />
 {:else}
 	{#if $session.authenticated}
 		you are already logged in
