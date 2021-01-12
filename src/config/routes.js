@@ -10,6 +10,7 @@ SCOPES:
 */
 
 const routes = new Router()
+	.unrestrict('/')
 	.unrestrict('/login')
 	.unrestrict('/check-auth')
 	.unrestrict('/verify-email')
