@@ -11,13 +11,15 @@
 <div class="index-container">
 	{#if $session.authenticated}
 		<div class="title">Hello, {$session.profile.firstName}</div>
-		<div class="p1">Welcome back. What would you like to today?</div>
-		{#if $session.profile.scope.includes(scopes.practitionerScope)}
-			WE HAVE A PRACTITIONER
-		{/if}
-		{#if $session.profile.scope.includes(scopes.clientScope)}
-			WE HAVE A CLIENT
-		{/if}
+		<div class="p1">
+			{#if $session.profile.firstVisit}
+				We need you to answer a few questions so we can complete your profile.
+			{:else}Welcome back. What would you like to today?{/if}
+		</div>
+		<ul>
+			<li>hello</li>
+			<li>another link</li>
+		</ul>
 	{:else}
 		<div class="title">Hello!</div>
 		<div class="p1">
@@ -27,6 +29,15 @@
 		</div>
 	{/if}
 </div>
+
+<!-- check to see if this is first visit -->
+{#if $session.profile.scope.includes(scopes.practitionerScope)}
+	WE HAVE A PRACTITIONER
+{/if}
+{#if $session.profile.scope.includes(scopes.clientScope)}
+	WE HAVE A CLIENT
+	{#if !$session.profile.firstVisit}First Visit{/if}
+{/if}
 
 <!-- {#if $session.authenticated}
 		{#if $session.profile.scope.includes(scopes.practitionerScope)}
@@ -53,8 +64,13 @@
 	}
 	.p1 {
 		font-size: 24px;
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 28px;
 		margin-bottom: 19px;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0px 0px 0px 0px;
+		margin: 0px 0px 0px 0px;
 	}
 </style>
