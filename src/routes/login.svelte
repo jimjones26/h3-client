@@ -22,36 +22,33 @@
 <svelte:head>
 	<title>Heart Healing Hub - Login</title>
 </svelte:head>
-{#if $authStore.loading}
-	<Loading message="Sending email." />
+
+{#if $session.authenticated}
+	you are already logged in
+{:else if $authStore.emailSent}
+	email was sent. you can close this window
 {:else}
-	{#if $session.authenticated}
-		you are already logged in
-	{:else if $authStore.emailSent}
-		email was sent. you can close this window
-	{:else}
-		<form on:submit|preventDefault={login} class="login-container">
-			<div class="p1">
-				Enter your email address. We will send a link you can use to log in.
-			</div>
-			<div class="footnote">
-				Your account is tied to your email address, so enter the same email you
-				used to create your account.
-			</div>
-			<input
-				type="email"
-				bind:value={email}
-				data-testid="email-input"
-				placeholder="your email address" />
-			<button
-				type="submit"
-				disabled={!isValid}
-				data-testid="submit-button">submit<span
-					class="material-icons button-icon">
-					arrow_forward
-				</span></button>
-		</form>
-	{/if}
+	<form on:submit|preventDefault={login} class="login-container">
+		<div class="p1">
+			Enter your email address. We will send a link you can use to log in.
+		</div>
+		<div class="footnote">
+			Your account is tied to your email address, so enter the same email you
+			used to create your account.
+		</div>
+		<input
+			type="email"
+			bind:value={email}
+			data-testid="email-input"
+			placeholder="your email address" />
+		<button
+			type="submit"
+			disabled={!isValid}
+			data-testid="submit-button">submit<span
+				class="material-icons button-icon">
+				arrow_forward
+			</span></button>
+	</form>
 	{#if $authStore.error}{$authStore.message}{/if}
 {/if}
 

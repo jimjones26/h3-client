@@ -1,6 +1,7 @@
 import {writable} from 'svelte/store';
 //import {goto} from '@sapper/app';
 
+import layoutStore from '../stores/layout-store';
 import {post} from '../utils/post';
 
 const authStore = writable({
@@ -15,17 +16,19 @@ const customAuthStore = {
 
 	/* Request magic link */
 	login: async email => {
-		authStore.update(currentState => {
-			return {...currentState, loading: true};
-		});
+		layoutStore.updateLoadingState(
+			true,
+			'Verifying email address. Sending login link.'
+		);
 		try {
 			const request = await post('http://localhost:5000/api/v1/users/login', {
 				email
 			});
 			if (request.status === 'success') {
 				authStore.update(currentState => {
-					return {...currentState, loading: false, emailSent: true};
+					return {...currentState, emailSent: true};
 				});
+				layoutStore.updateLoadingState(false, null);
 			} else {
 				throw new Error('User Not Found');
 			}
@@ -33,12 +36,12 @@ const customAuthStore = {
 			authStore.update(currentState => {
 				return {
 					...currentState,
-					loading: false,
 					emailSent: false,
 					error: true,
 					message: error.message
 				};
 			});
+			layoutStore.updateLoadingState(false);
 		}
 	}
 };

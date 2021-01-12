@@ -10,13 +10,18 @@
 <style>
 	.container {
 		display: grid;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: auto auto;
+		grid-row-start: 1;
+		grid-row-end: 3;
 	}
 	.message {
 		align-self: start;
 		justify-self: center;
 		font-size: 24px;
 		margin-top: 15px;
+		margin-right: 50px;
+		margin-left: 50px;
+		text-align: center;
 	}
 	/**
     * ==============================================
