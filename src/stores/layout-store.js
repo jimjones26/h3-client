@@ -4,7 +4,8 @@ const layoutStore = writable({
 	loading: false,
 	loadingMessage: null,
 	error: false,
-	errorMessage: null
+	errorMessage: null,
+	showNavHeader: false
 });
 
 const customLayoutStore = {
