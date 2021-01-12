@@ -31,13 +31,15 @@
 </div>
 
 <!-- check to see if this is first visit -->
-{#if $session.profile.scope.includes(scopes.practitionerScope)}
-	WE HAVE A PRACTITIONER
-{/if}
-{#if $session.profile.scope.includes(scopes.clientScope)}
-	WE HAVE A CLIENT
-	{#if !$session.profile.firstVisit}First Visit{/if}
-{/if}
+<!-- {#if $session.profile.scope}
+	{#if $session.profile.scope.includes(scopes.practitionerScope)}
+		WE HAVE A PRACTITIONER
+	{/if}
+	{#if $session.profile.scope.includes(scopes.clientScope)}
+		WE HAVE A CLIENT
+		{#if !$session.profile.firstVisit}First Visit{/if}
+	{/if}
+{/if} -->
 
 <!-- {#if $session.authenticated}
 		{#if $session.profile.scope.includes(scopes.practitionerScope)}
