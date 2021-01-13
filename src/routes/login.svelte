@@ -1,10 +1,14 @@
 <script>
+	import {onMount} from 'svelte';
 	import {goto, stores} from '@sapper/app';
 	import authStore from '../stores/auth-store';
-
-	import Loading from '../components/Loading.svelte';
+	import layoutStore from '../stores/layout-store';
 
 	const {session} = stores();
+
+	onMount(() => {
+		layoutStore.setNavHeader(true, 'Login');
+	});
 
 	let email = '1@1.com';
 	$: isValid = validateEmail(email);

@@ -1,6 +1,13 @@
 <script>
+	import {onMount} from 'svelte';
 	import {goto, stores} from '@sapper/app';
 	import scopes from '../utils/scopes';
+
+	import layoutStore from '../stores/layout-store';
+
+	onMount(() => {
+		layoutStore.setNavHeader(false, null);
+	});
 
 	const {session} = stores();
 </script>
@@ -26,6 +33,10 @@
 			<strong>Heart Healing Hub</strong>
 			helps people connect with Counselors, to begin the process of healing the
 			heart.
+		</div>
+		<div>
+			<a href="/learn-more">Find out More</a><a href="/login">Login</a><a
+				href="/register">Register a New Account</a>
 		</div>
 	{/if}
 </div>
