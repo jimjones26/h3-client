@@ -45,13 +45,10 @@
 			bind:value={email}
 			data-testid="email-input"
 			placeholder="your email address" />
-		<button
-			type="submit"
-			disabled={!isValid}
-			data-testid="submit-button">submit<span
-				class="material-icons button-icon">
-				arrow_forward
-			</span></button>
+		<button type="submit" disabled={!isValid} data-testid="submit-button">submit
+			<svg class="button-icon">
+				<use xlink:href="../../images/icons.svg#arrow_forward" />
+			</svg></button>
 	</form>
 	{#if $authStore.error}{$authStore.message}{/if}
 {/if}
@@ -137,7 +134,7 @@
 	.button-icon {
 		vertical-align: middle;
 		margin-bottom: 2px;
-		margin-left: 5px;
-		font-size: 20px;
+		width: 24px;
+		height: 24px;
 	}
 </style>

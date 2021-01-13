@@ -3,10 +3,9 @@
 </script>
 
 <div class="nav-header-container">
-	<button type="submit" data-testid="submit-button"><span
-			class="material-icons button-icon">
-			arrow_back
-		</span></button>
+	<button type="submit" data-testid="submit-button"><svg class="button-icon">
+			<use xlink:href="../../images/icons.svg#arrow_back" />
+		</svg></button>
 	<span class="header-text">{headerText}</span>
 </div>
 
@@ -30,5 +29,12 @@
 		border: 0 transparent;
 		color: var(--main-font-color);
 		cursor: pointer;
+		padding: 0px;
+	}
+	.button-icon {
+		vertical-align: middle;
+		margin-bottom: 2px;
+		width: 24px;
+		height: 24px;
 	}
 </style>
