@@ -1,9 +1,12 @@
 <script>
 	import {onMount} from 'svelte';
-	import {goto, stores} from '@sapper/app';
+	import {stores} from '@sapper/app';
+
 	import scopes from '../utils/scopes';
 
 	import layoutStore from '../stores/layout-store';
+
+	import PrimaryNavItem from '../components/PrimaryNavItem.svelte';
 
 	onMount(() => {
 		layoutStore.setNavHeader(false, null);
@@ -35,8 +38,18 @@
 			heart.
 		</div>
 		<div>
-			<a href="/learn-more">Find out More</a><a href="/login">Login</a><a
-				href="/register">Register a New Account</a>
+			<PrimaryNavItem
+				navText="Find out More"
+				urlPath="/learn-more"
+				navDescription="Suspendisse orci pellentesque at sollicitudin malesuada amet cursus dictum faucibus." />
+			<PrimaryNavItem
+				navText="Login"
+				urlPath="/login"
+				navDescription="Did you register an account already? Click here to enter your login information." />
+			<PrimaryNavItem
+				navText="Register a New Account"
+				urlPath="/register"
+				navDescription="Setup a new account and get started!" />
 		</div>
 	{/if}
 </div>
@@ -70,7 +83,6 @@
 	}
 	.title {
 		font-size: 48px;
-		font-weight: 500;
 		line-height: 52px;
 		margin-bottom: 19px;
 		text-transform: capitalize;
@@ -79,7 +91,7 @@
 		font-size: 24px;
 		font-weight: 300;
 		line-height: 28px;
-		margin-bottom: 19px;
+		margin-bottom: 53px;
 	}
 	ul {
 		list-style-type: none;
