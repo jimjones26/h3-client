@@ -1,13 +1,13 @@
 <script>
 	import {onMount} from 'svelte';
-	import {goto, stores} from '@sapper/app';
+	import {stores} from '@sapper/app';
 	import authStore from '../stores/auth-store';
 	import layoutStore from '../stores/layout-store';
 
 	const {session} = stores();
 
 	onMount(() => {
-		layoutStore.setNavHeader(true, 'Login');
+		layoutStore.setNavHeader(true, 'Login', '/');
 	});
 
 	let email = '1@1.com';

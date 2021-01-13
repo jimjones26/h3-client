@@ -6,7 +6,8 @@ const layoutStore = writable({
 	error: false,
 	errorMessage: null,
 	showNavHeader: false,
-	headerText: null
+	headerText: null,
+	referringUrl: []
 });
 
 const customLayoutStore = {
@@ -18,13 +19,13 @@ const customLayoutStore = {
 		});
 	},
 
-	setNavHeader: (showNavHeader, headerText) => {
+	setNavHeader: (showNavHeader, headerText, referringUrl) => {
 		console.log('SET NAV HEADER');
 		// set visibility to true or false
 		// add referring url to array
 		// set the header text
 		layoutStore.update(currentState => {
-			return {...currentState, showNavHeader, headerText};
+			return {...currentState, showNavHeader, headerText, referringUrl};
 		});
 	}
 };

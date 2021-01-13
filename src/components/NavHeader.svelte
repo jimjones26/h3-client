@@ -1,9 +1,18 @@
 <script>
+	import {createEventDispatcher} from 'svelte';
+
 	export let headerText = 'Header Text';
+	export let referringUrl = null;
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <div class="nav-header-container">
-	<button type="submit" data-testid="submit-button"><svg class="button-icon">
+	<button
+		type="submit"
+		data-testid="submit-button"
+		on:click={() => dispatch('navigateBack', referringUrl)}><svg
+			class="button-icon">
 			<use xlink:href="../../images/icons.svg#arrow_back" />
 		</svg></button>
 	<span class="header-text">{headerText}</span>
