@@ -1,5 +1,5 @@
 import {writable} from 'svelte/store';
-//import {goto} from '@sapper/app';
+import {goto} from '@sapper/app';
 
 import layoutStore from '../stores/layout-store';
 import {post} from '../utils/post';
@@ -25,10 +25,11 @@ const customAuthStore = {
 				email
 			});
 			if (request.status === 'success') {
-				authStore.update(currentState => {
+				await authStore.update(currentState => {
 					return {...currentState, emailSent: true};
 				});
-				layoutStore.updateLoadingState(false, null);
+				await layoutStore.updateLoadingState(false, null);
+				goto('/email-sent');
 			} else {
 				throw new Error('User Not Found');
 			}
