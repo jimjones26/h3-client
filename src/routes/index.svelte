@@ -15,6 +15,7 @@
 	const {session} = stores();
 </script>
 
+<!-- {JSON.stringify({$session})} -->
 <svelte:head>
 	<title>Heart Healing Hub</title>
 </svelte:head>
@@ -26,10 +27,16 @@
 				We need you to answer a few questions so we can complete your profile.
 			{:else}Welcome back. What would you like to today?{/if}
 		</div>
-		<ul>
-			<li>hello</li>
-			<li>another link</li>
-		</ul>
+		<nav>
+			<PrimaryNavItem
+				navText="Complete My Profile"
+				urlPath="/complete-profile"
+				navDescription="This will only take a few minutes. Let's get started." />
+		</nav>
+		<div class="footer">
+			You must complete your profile before you can continue. If you don’t have
+			time now, you can come back later and finish.
+		</div>
 	{:else}
 		<div class="title">Hello!</div>
 		<div class="p1">
@@ -37,7 +44,7 @@
 			helps people connect with Counselors, to begin the process of healing the
 			heart.
 		</div>
-		<div>
+		<nav>
 			<PrimaryNavItem
 				navText="Find out More"
 				urlPath="/learn-more"
@@ -50,7 +57,7 @@
 				navText="Register a New Account"
 				urlPath="/register"
 				navDescription="Setup a new account and get started!" />
-		</div>
+		</nav>
 	{/if}
 </div>
 
@@ -93,9 +100,10 @@
 		line-height: 28px;
 		margin-bottom: 53px;
 	}
-	ul {
-		list-style-type: none;
-		padding: 0px 0px 0px 0px;
-		margin: 0px 0px 0px 0px;
+	.footer {
+		font-size: 16px;
+		align-self: end;
+		justify-self: center;
+		text-align: center;
 	}
 </style>
