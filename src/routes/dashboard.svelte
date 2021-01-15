@@ -2,8 +2,6 @@
 	import {onMount} from 'svelte';
 	import {stores} from '@sapper/app';
 
-	import scopes from '../utils/scopes';
-
 	import layoutStore from '../stores/layout-store';
 
 	import PrimaryNavItem from '../components/PrimaryNavItem.svelte';
@@ -37,24 +35,6 @@
 	</div>
 </div>
 
-<!-- check to see if this is first visit -->
-<!-- {#if $session.profile.scope}
-	{#if $session.profile.scope.includes(scopes.practitionerScope)}
-		WE HAVE A PRACTITIONER
-	{/if}
-	{#if $session.profile.scope.includes(scopes.clientScope)}
-		WE HAVE A CLIENT
-		{#if !$session.profile.firstVisit}First Visit{/if}
-	{/if}
-{/if} -->
-
-<!-- {#if $session.authenticated}
-		{#if $session.profile.scope.includes(scopes.practitionerScope)}
-			WE HAVE A PRACTITIONER
-		{/if}
-		<a href="/logout">logout</a>
-		<a href="/profile">profile</a>
-	{/if} -->
 <style>
 	.dashboard-container {
 		display: grid;
