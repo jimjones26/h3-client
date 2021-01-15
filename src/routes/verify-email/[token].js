@@ -18,7 +18,7 @@ export const get = async (req, res) => {
 			createRefreshCookie(tokens.refreshToken)
 		]);
 		// redirect to main page for user
-		let url = '/';
+		let url = '/dashboard';
 		let str = `Redirecting to ${url}`;
 		res.writeHead(302, {
 			Location: url,
@@ -27,7 +27,7 @@ export const get = async (req, res) => {
 		});
 		res.end(str);
 	} else {
-		let url = '/';
+		let url = '/login';
 		let str = `Redirecting to ${url}`;
 		res.writeHead(302, {
 			Location: url,

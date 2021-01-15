@@ -6,26 +6,24 @@ SCOPES:
 - admin (for the head of an org)
 - client
 - practitioner
-- guest
 */
 
 const routes = new Router()
-	.unrestrict('/')
-	.unrestrict('/login')
-	.unrestrict('/check-auth')
-	.unrestrict('/verify-email')
-	.unrestrict('/logout.*')
-	.restrict('/admin.*', [scopes.adminScope])
-	.restrict('/profile.*', [
+	.restrict('/dashboard', [
 		scopes.adminScope,
 		scopes.clientScope,
 		scopes.practitionerScope
 	])
+	.restrict('/admin.*', [scopes.adminScope])
+	.unrestrict('/')
+	.unrestrict('/login.*')
+	.unrestrict('/check-auth.*')
+	.unrestrict('/verify-email')
+	.unrestrict('/logout.*')
 	.restrict('/.*', [
 		scopes.adminScope,
 		scopes.clientScope,
-		scopes.practitionerScope,
-		scopes.guestScope
+		scopes.practitionerScope
 	])
 	// add this after the guarded sub-urls
 	.build();
