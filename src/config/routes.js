@@ -9,7 +9,7 @@ SCOPES:
 */
 
 const routes = new Router()
-	.restrict('/dashboard', [
+	.restrict('/dashboard.*', [
 		scopes.adminScope,
 		scopes.clientScope,
 		scopes.practitionerScope
