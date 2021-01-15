@@ -30,7 +30,7 @@
 	</div>
 	<nav>
 		<PrimaryNavItem
-			navText="Find out More"
+			navText="Learn More"
 			urlPath="/learn-more"
 			navDescription="Suspendisse orci pellentesque at sollicitudin malesuada amet cursus dictum faucibus." />
 		<PrimaryNavItem
@@ -64,11 +64,5 @@
 		font-weight: 300;
 		line-height: 28px;
 		margin-bottom: 53px;
-	}
-	.footer {
-		font-size: 16px;
-		align-self: end;
-		justify-self: center;
-		text-align: center;
 	}
 </style>
