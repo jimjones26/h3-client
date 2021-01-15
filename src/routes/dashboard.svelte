@@ -28,6 +28,10 @@
 			navText="Complete My Profile"
 			urlPath="/complete-profile"
 			navDescription="This will only take a few minutes. Let's get started." />
+		<PrimaryNavItem
+			navText="Logout"
+			urlPath="/logout"
+			navDescription="End your session on this and any other device you may have logged into." />
 	</nav>
 	<div class="footer">
 		You must complete your profile before you can continue. If you don’t have
