@@ -15,10 +15,7 @@
 		Not getting an email? Make sure you are checking the account for the email
 		you used to login. Also check your spam folder.
 	</div>
-	<PrimaryNavItem
-		navText="Try to Login Again"
-		urlPath="/login"
-		navDescription="If you still don't see an email from us, you can try again." />
+	<div><a href="/login">Try logging in again.</a></div>
 	<div class="footer">You can close this window now.</div>
 </div>
 
