@@ -1,7 +1,6 @@
 <script>
 	import {onMount} from 'svelte';
 	import layoutStore from '../stores/layout-store';
-	import PrimaryNavItem from '../components/PrimaryNavItem.svelte';
 
 	onMount(() => {
 		layoutStore.setNavHeader(false, null, null);

@@ -29,8 +29,6 @@
 
 {#if $session.authenticated}
 	you are already logged in
-{:else if $authStore.emailSent}
-	email was sent. you can close this window
 {:else}
 	<form on:submit|preventDefault={login} class="login-container">
 		<div class="p1">
@@ -50,7 +48,6 @@
 				<use xlink:href="../../images/icons.svg#arrow_forward" />
 			</svg></button>
 	</form>
-	{#if $authStore.error}{$authStore.message}{/if}
 {/if}
 
 <style>
