@@ -24,19 +24,23 @@
 		{:else}Welcome back. What would you like to today?{/if}
 	</div>
 	<nav>
-		<PrimaryNavItem
-			navText="Complete My Profile"
-			urlPath="/complete-profile"
-			navDescription="This will only take a few minutes. Let's get started." />
+		{#if $session.profile.firstVisit}
+			<PrimaryNavItem
+				navText="Complete My Profile"
+				urlPath="/complete-profile"
+				navDescription="This will only take a few minutes. Let's get started." />
+		{:else}some other navitems{/if}
 		<PrimaryNavItem
 			navText="Logout"
 			urlPath="/logout"
 			navDescription="End your session on this and any other device you may have logged into." />
 	</nav>
-	<div class="footer">
-		You must complete your profile before you can continue. If you don’t have
-		time now, you can come back later and finish.
-	</div>
+	{#if $session.profile.firstVisit}
+		<div class="footer">
+			You must complete your profile before you can continue. If you don’t have
+			time now, you can come back later and finish.
+		</div>
+	{/if}
 </div>
 
 <style>
