@@ -38,8 +38,8 @@
 			urlPath="/login"
 			navDescription="Did you register an account already? Click here to enter your login information." />
 		<PrimaryNavItem
-			navText="Register a New Account"
-			urlPath="/register"
+			navText="Create a New Account"
+			urlPath="/create"
 			navDescription="Setup a new account and get started!" />
 	</nav>
 </div>
