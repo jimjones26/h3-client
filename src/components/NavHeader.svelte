@@ -9,10 +9,11 @@
 
 <div class="nav-header-container">
 	<button
+		class="header-button"
 		type="submit"
 		data-testid="submit-button"
 		on:click={() => dispatch('navigateBack', referringUrl)}><svg
-			class="button-icon">
+			class="header-button-icon">
 			<use xlink:href="../../images/icons.svg#arrow_back" />
 		</svg></button>
 	<span class="header-text">{headerText}</span>
@@ -31,7 +32,7 @@
 		align-self: center;
 		margin-bottom: 1px;
 	}
-	button {
+	.header-button {
 		width: 50px;
 		height: 50px;
 		background: transparent;
@@ -39,8 +40,9 @@
 		color: var(--main-font-color);
 		cursor: pointer;
 		padding: 0px;
+		margin-right: 0px;
 	}
-	.button-icon {
+	.header-button-icon {
 		vertical-align: middle;
 		margin-bottom: 2px;
 		width: 24px;
