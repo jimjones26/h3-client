@@ -30,6 +30,71 @@ body {
 	grid-template-rows: auto 1fr;
 }
 
+input {
+	border: 0 transparent;
+	background-color: transparent;
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 500;
+	color: var(--main-font-color);
+	caret-color: var(--main-font-color);
+	align-self: center;
+	margin-left: -1px;
+}
+
+input:focus {
+	outline: none;
+}
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: var(--input-placeholder);
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: var(--input-placeholder);
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: var(--input-placeholder);
+}
+
+button {
+	background: transparent;
+	border: 0 transparent;
+	font-size: 20px;
+	font-weight: 400;
+	color: var(--main-font-color);
+	cursor: pointer;
+	justify-self: end;
+}
+
+button:disabled {
+	color: var(--input-placeholder);
+	cursor: not-allowed;
+}
+
+button:active:enabled {
+	color: orange;
+}
+
+button:focus {
+	outline: none;
+}
+
+.button-left {
+	justify-self: start;
+	margin-left: -11px;
+}
+.button-right {
+	justify-self: right;
+	margin-right: -11px;
+	grid-column-start: 2;
+}
+
 /* Mobile first queries */
 
 /* Larger than mobile */
