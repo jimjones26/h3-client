@@ -12,9 +12,9 @@
 
 	let step = 0;
 	let email = '2@gmail.com';
-	let firstName = 'Behtnay';
+	let firstName = 'Bethany';
 	let lastName = 'Jones';
-	let phoneNumber = '(918)299-8976';
+	let phoneNumber = '9182998976';
 
 	$: user = {
 		email,
