@@ -59,7 +59,6 @@ const customAuthStore = {
 					user
 				}
 			);
-			console.log('REQUEST: ', request);
 			if (request.status === 'success') {
 				await authStore.update(currentState => {
 					return {...currentState, emailSent: true};
