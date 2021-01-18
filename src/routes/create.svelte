@@ -1,5 +1,6 @@
 <script>
 	import {onMount} from 'svelte';
+	import authStore from '../stores/auth-store';
 	import layoutStore from '../stores/layout-store';
 	import {validateEmail} from '../utils/validateEmail';
 
@@ -10,8 +11,8 @@
 	$: emailValid = validateEmail(email);
 
 	let step = 0;
-	let email = 'jimjones26@gmail.com';
-	let firstName = 'Jimmy';
+	let email = '2@gmail.com';
+	let firstName = 'Behtnay';
 	let lastName = 'Jones';
 	let phoneNumber = '(918)299-8976';
 
@@ -39,6 +40,7 @@
 
 	function save() {
 		console.log('USER: ', user);
+		authStore.createClient(user);
 	}
 </script>
 
