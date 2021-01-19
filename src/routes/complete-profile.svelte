@@ -1,11 +1,14 @@
 <script>
 	import {onMount} from 'svelte';
+	import {stores} from '@sapper/app';
 	import layoutStore from '../stores/layout-store';
 	import userStore from '../stores/user-store';
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Complete My Profile', '/dashboard');
 	});
+
+	const {session} = stores();
 
 	let step = 0;
 	let genderPreference = 'none';
@@ -41,7 +44,7 @@
 	}
 	function save() {
 		console.log('PREFERENCES: ', preferences);
-		userStore.completeProfile(1, preferences);
+		userStore.completeProfile($session.profile.id, preferences);
 	}
 </script>
 
@@ -148,10 +151,7 @@
 		margin-bottom: 32px;
 		margin-top: 40px;
 	}
-	.buttons-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
+
 	.p1 {
 		font-size: 24px;
 		font-weight: 400;
