@@ -1,6 +1,7 @@
 <script>
 	import {onMount} from 'svelte';
 	import layoutStore from '../stores/layout-store';
+	import userStore from '../stores/user-store';
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Complete My Profile', '/dashboard');
@@ -40,7 +41,7 @@
 	}
 	function save() {
 		console.log('PREFERENCES: ', preferences);
-		//authStore.createClient(user);
+		userStore.completeProfile(1, preferences);
 	}
 </script>
 
