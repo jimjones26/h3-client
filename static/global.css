@@ -38,7 +38,7 @@ input {
 	font-weight: 500;
 	color: var(--main-font-color);
 	caret-color: var(--main-font-color);
-	align-self: center;
+	align-self: start;
 	margin-left: -1px;
 }
 

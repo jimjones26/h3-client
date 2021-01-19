@@ -11,7 +11,7 @@
 		layoutStore.setNavHeader(true, 'Login', '/');
 	});
 
-	let email = '1@1.com';
+	let email;
 	$: isValid = validateEmail(email);
 
 	function login() {
@@ -41,9 +41,16 @@
 			placeholder="your email address" />
 		<div class="buttons-container">
 			<button type="submit" disabled={!isValid} class="button-right">submit
-				<svg class="button-icon">
-					<use xlink:href="../../images/icons.svg#arrow_forward" />
-				</svg></button>
+				{#if isValid}
+					<svg class="button-icon">
+						<use xlink:href="../../images/icons.svg#arrow_forward" />
+					</svg>
+				{:else}
+					<svg class="button-icon">
+						<use xlink:href="../../images/icons.svg#arrow_forward_disabled" />
+					</svg>
+				{/if}
+			</button>
 		</div>
 	</form>
 {/if}
@@ -67,6 +74,7 @@
 		font-size: 16px;
 		line-height: 19px;
 		font-weight: 300;
+		margin-bottom: 53px;
 	}
 	.button-icon {
 		vertical-align: middle;
