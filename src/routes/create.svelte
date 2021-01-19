@@ -113,10 +113,6 @@
 		margin-bottom: 32px;
 		margin-top: 40px;
 	}
-	.buttons-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
 	.p1 {
 		font-size: 24px;
 		font-weight: 400;

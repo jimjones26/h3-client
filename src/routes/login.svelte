@@ -39,10 +39,12 @@
 			bind:value={email}
 			data-testid="email-input"
 			placeholder="your email address" />
-		<button type="submit" disabled={!isValid} class="button-right">submit
-			<svg class="button-icon">
-				<use xlink:href="../../images/icons.svg#arrow_forward" />
-			</svg></button>
+		<div class="buttons-container">
+			<button type="submit" disabled={!isValid} class="button-right">submit
+				<svg class="button-icon">
+					<use xlink:href="../../images/icons.svg#arrow_forward" />
+				</svg></button>
+		</div>
 	</form>
 {/if}
 

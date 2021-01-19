@@ -17,11 +17,11 @@
 	<title>Heart Healing Hub</title>
 </svelte:head>
 <div class="dashboard-container">
-	<div class="title">Hello, {$session.profile.firstName}</div>
+	<div class="title">Hi, {$session.profile.firstName}</div>
 	<div class="p1">
 		{#if $session.profile.firstVisit}
 			We need you to answer a few questions so we can complete your profile.
-		{:else}Welcome back. What would you like to today?{/if}
+		{:else}Welcome back. What would you like to do today?{/if}
 	</div>
 	<nav>
 		{#if $session.profile.firstVisit}
