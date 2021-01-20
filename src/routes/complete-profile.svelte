@@ -6,6 +6,7 @@
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Complete My Profile', '/dashboard');
+		layoutStore.updateTermsVisibility(false);
 	});
 
 	const {session} = stores();

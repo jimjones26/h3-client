@@ -9,6 +9,7 @@
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Login', '/');
+		layoutStore.updateTermsVisibility(false);
 	});
 
 	let email;

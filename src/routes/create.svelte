@@ -6,6 +6,7 @@
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Create New Account', '/');
+		layoutStore.updateTermsVisibility(false);
 	});
 
 	$: emailValid = validateEmail(email);

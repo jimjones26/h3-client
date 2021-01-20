@@ -7,7 +7,8 @@ const layoutStore = writable({
 	errorMessage: null,
 	showNavHeader: false,
 	headerText: null,
-	referringUrl: []
+	referringUrl: [],
+	showTerms: true
 });
 
 const customLayoutStore = {
@@ -26,6 +27,12 @@ const customLayoutStore = {
 		// set the header text
 		layoutStore.update(currentState => {
 			return {...currentState, showNavHeader, headerText, referringUrl};
+		});
+	},
+
+	updateTermsVisibility: bool => {
+		layoutStore.update(currentState => {
+			return {...currentState, showTerms: bool};
 		});
 	}
 };
