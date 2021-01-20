@@ -10,11 +10,25 @@
 
 	$: emailValid = validateEmail(email);
 
+	$: isValid = () => {
+		if (step === 0) {
+			console.log('hello');
+			return emailValid;
+		} else if (step === 1) {
+			if (firstName && lastName && phoneNumber) {
+				return true;
+			}
+			return false;
+		} else {
+			return true;
+		}
+	};
+
 	let step = 0;
-	let email = '2@gmail.com';
-	let firstName = 'Bethany';
-	let lastName = 'Jones';
-	let phoneNumber = '9182998976';
+	let email;
+	let firstName;
+	let lastName;
+	let phoneNumber;
 
 	$: user = {
 		email,
@@ -64,18 +78,11 @@
 			Great! What is your name and the best phone number to contact you at?
 		</div>
 		<div>
+			<input type="text" bind:value={firstName} placeholder="your first name" />
+			<input type="text" bind:value={lastName} placeholder="your last name" />
 			<input
 				type="text"
-				bind:value={firstName}
-				data-testid="email-input"
-				placeholder="your first name" /><input
-				type="text"
-				bind:value={lastName}
-				data-testid="email-input"
-				placeholder="your last name" /><input
-				type="text"
 				bind:value={phoneNumber}
-				data-testid="email-input"
 				placeholder="your phone number" />
 		</div>
 	{:else if step === 2}
@@ -97,10 +104,17 @@
 		{/if}
 		<button
 			on:click={step <= 1 ? next : save}
+			disabled={!isValid()}
 			class="button-right"><span>{step === 2 ? 'save' : 'next'}</span>
-			<svg class="button-icon">
-				<use xlink:href="../../images/icons.svg#arrow_forward" />
-			</svg></button>
+			{#if isValid()}
+				<svg class="button-icon">
+					<use xlink:href="../../images/icons.svg#arrow_forward" />
+				</svg>
+			{:else}
+				<svg class="button-icon">
+					<use xlink:href="../../images/icons.svg#arrow_forward_disabled" />
+				</svg>
+			{/if}</button>
 	</div>
 </div>
 
@@ -117,7 +131,7 @@
 		font-size: 24px;
 		font-weight: 400;
 		line-height: 28px;
-		margin-bottom: 19px;
+		margin-bottom: 53px;
 	}
 	.button-icon {
 		vertical-align: middle;
@@ -128,8 +142,10 @@
 	.name {
 		font-size: 24px;
 		font-weight: bold;
+		margin-bottom: 5px;
 	}
 	.email-phone {
 		font-size: 20px;
+		margin-bottom: 5px;
 	}
 </style>
