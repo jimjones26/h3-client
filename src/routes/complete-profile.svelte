@@ -11,13 +11,11 @@
 	const {session} = stores();
 
 	let step = 0;
-	let genderPreference = 'none';
-	let appointmentPreference;
 
-	$: preferences = {
-		genderPreference,
-		appointmentPreference
-	};
+	const genderPreferences = ['none', 'male', 'female'];
+	const appointmentPreferences = ['none', 'virtual', 'in person'];
+	let genderPreference = genderPreferences[0];
+	let appointmentPreference = appointmentPreferences[0];
 
 	$: backButtonVisible = () => {
 		if (step === 1 || step === 2 || step === 3) {
@@ -36,17 +34,12 @@
 		step--;
 	}
 
-	function updateGenderPreference(event) {
-		console.log('VALUE: ', event.target.value);
-		preferences.genderPreference = event.target.value;
-	}
-	function updateAppointmentPreference(event) {
-		console.log('VALUE: ', event.target.value);
-		preferences.appointmentPreference = event.target.value;
-	}
 	function save() {
-		console.log('PREFERENCES: ', preferences);
-		userStore.completeProfile($session.profile.id, preferences);
+		console.log('PREFERENCES: ', {genderPreference, appointmentPreference});
+		userStore.completeProfile($session.profile.id, {
+			genderPreference,
+			appointmentPreference
+		});
 	}
 </script>
 
@@ -57,32 +50,17 @@
 			for?
 		</div>
 		<div>
-			<fieldset id="gender">
-				<label>
-					<input
-						{checked}
-						type="radio"
-						name="gender"
-						value="none"
-						on:change={updateGenderPreference} />
-					<span>no preference</span>
-				</label>
-				<label>
-					<input
-						type="radio"
-						name="gender"
-						value="female"
-						on:change={updateGenderPreference} />
-					<span>female</span>
-				</label>
-				<label>
-					<input
-						type="radio"
-						name="gender"
-						value="male"
-						on:change={updateGenderPreference} />
-					<span>male</span>
-				</label>
+			<fieldset id="genderPreference">
+				{#each genderPreferences as genderPref}
+					<label>
+						<input
+							type="radio"
+							name="genderPreference"
+							value={genderPref}
+							bind:group={genderPreference} />
+						<span>{genderPref}</span>
+					</label>
+				{/each}
 			</fieldset>
 		</div>
 	{:else if step === 1}
@@ -91,31 +69,17 @@
 			ok?
 		</div>
 		<div>
-			<fieldset id="appointment">
-				<label>
-					<input
-						type="radio"
-						name="appointment"
-						value="none"
-						on:change={updateAppointmentPreference} />
-					<span>no preference</span>
-				</label>
-				<label>
-					<input
-						type="radio"
-						name="appointment"
-						value="inPerson"
-						on:change={updateAppointmentPreference} />
-					<span>in person</span>
-				</label>
-				<label>
-					<input
-						type="radio"
-						name="appointment"
-						value="virtual"
-						on:change={updateAppointmentPreference} />
-					<span>virtual</span>
-				</label>
+			<fieldset id="appointmentPreference">
+				{#each appointmentPreferences as appointmentPref}
+					<label>
+						<input
+							type="radio"
+							name="appointmentPreference"
+							value={appointmentPref}
+							bind:group={appointmentPreference} />
+						<span>{appointmentPref}</span>
+					</label>
+				{/each}
 			</fieldset>
 		</div>
 	{:else if step === 2}
@@ -123,13 +87,10 @@
 			Alright, here is the info you gave us. Does everything look correct?
 		</div>
 		<div>
-			<div class="email-phone">
-				Gender Preference:
-				{preferences.genderPreference}
-			</div>
+			<div class="email-phone">Gender Preference: {genderPreference}</div>
 			<div class="email-phone">
 				Appointment Preference:
-				{preferences.appointmentPreference}
+				{appointmentPreference}
 			</div>
 		</div>
 	{/if}
