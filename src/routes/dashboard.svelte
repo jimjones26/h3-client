@@ -29,7 +29,12 @@
 				navText="Complete My Profile"
 				urlPath="/complete-profile"
 				navDescription="This will only take a few minutes. Let's get started." />
-		{:else}some other navitems{/if}
+		{:else}
+			<PrimaryNavItem
+				navText="Find a Practitioner"
+				urlPath="/dashboard"
+				navDescription="Suspendisse orci pellentesque at sollicitudin malesuada amet cursus dictum faucibus." />
+		{/if}
 		<PrimaryNavItem
 			navText="Logout"
 			urlPath="/logout"
