@@ -20,9 +20,7 @@ const customUserStore = {
 			genderPreference: preferences.genderPreference,
 			appointmentPreference: preferences.appointmentPreference
 		})
-			.then(resAsJson => {
-				layoutStore.updateLoadingState(false, null);
-				console.log('RESASJSON: ', resAsJson);
+			.then(() => {
 				goto('/refresh-session');
 			})
 			.catch(error => {
