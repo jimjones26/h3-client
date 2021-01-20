@@ -141,6 +141,7 @@
 	}
 	.email-phone {
 		font-size: 20px;
+		margin-bottom: 5px;
 	}
 
 	label {
