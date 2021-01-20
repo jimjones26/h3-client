@@ -27,6 +27,8 @@
 		}
 	};
 
+	let checked = false;
+
 	function next() {
 		step++;
 	}
@@ -56,27 +58,31 @@
 		</div>
 		<div>
 			<fieldset id="gender">
-				<div>
+				<label>
 					<input
+						{checked}
 						type="radio"
 						name="gender"
 						value="none"
-						on:change={updateGenderPreference} />no preference
-				</div>
-				<div>
+						on:change={updateGenderPreference} />
+					<span>no preference</span>
+				</label>
+				<label>
 					<input
 						type="radio"
 						name="gender"
 						value="female"
-						on:change={updateGenderPreference} />female
-				</div>
-				<div>
+						on:change={updateGenderPreference} />
+					<span>female</span>
+				</label>
+				<label>
 					<input
 						type="radio"
 						name="gender"
 						value="male"
-						on:change={updateGenderPreference} />male
-				</div>
+						on:change={updateGenderPreference} />
+					<span>male</span>
+				</label>
 			</fieldset>
 		</div>
 	{:else if step === 1}
@@ -85,31 +91,32 @@
 			ok?
 		</div>
 		<div>
-			<div>
-				<fieldset id="appointment">
-					<div>
-						<input
-							type="radio"
-							name="appointment"
-							value="none"
-							on:change={updateAppointmentPreference} />no preference
-					</div>
-					<div>
-						<input
-							type="radio"
-							name="appointment"
-							value="inPerson"
-							on:change={updateAppointmentPreference} />in person
-					</div>
-					<div>
-						<input
-							type="radio"
-							name="appointment"
-							value="virtual"
-							on:change={updateAppointmentPreference} />virtual
-					</div>
-				</fieldset>
-			</div>
+			<fieldset id="appointment">
+				<label>
+					<input
+						type="radio"
+						name="appointment"
+						value="none"
+						on:change={updateAppointmentPreference} />
+					<span>no preference</span>
+				</label>
+				<label>
+					<input
+						type="radio"
+						name="appointment"
+						value="inPerson"
+						on:change={updateAppointmentPreference} />
+					<span>in person</span>
+				</label>
+				<label>
+					<input
+						type="radio"
+						name="appointment"
+						value="virtual"
+						on:change={updateAppointmentPreference} />
+					<span>virtual</span>
+				</label>
+			</fieldset>
 		</div>
 	{:else if step === 2}
 		<div class="p1">
@@ -151,12 +158,19 @@
 		margin-bottom: 32px;
 		margin-top: 40px;
 	}
-
+	fieldset {
+		display: grid;
+		border: 0px solid transparent;
+		margin: 0px;
+		padding: 0px;
+		font-size: 20px;
+	}
 	.p1 {
 		font-size: 24px;
 		font-weight: 400;
 		line-height: 28px;
 		margin-bottom: 19px;
+		margin-bottom: 53px;
 	}
 	.button-icon {
 		vertical-align: middle;
@@ -166,5 +180,39 @@
 	}
 	.email-phone {
 		font-size: 20px;
+	}
+
+	label {
+		margin-bottom: 25px;
+	}
+
+	label > input[type='radio'] {
+		display: none;
+	}
+
+	label > input[type='radio'] + *::before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 1.3rem;
+		height: 1.3rem;
+		margin-right: 0.6rem;
+		border-radius: 50%;
+		border-style: solid;
+		border-width: 0.15rem;
+		border-color: var(--main-font-color);
+	}
+
+	label > input[type='radio']:checked + *::before {
+		background: radial-gradient(
+			var(--main-font-color) 0%,
+			var(--main-font-color) 40%,
+			transparent 50%,
+			transparent
+		);
+		border-color: var(--main-font-color);
+	}
+	label > input[type='radio']:checked + * {
+		color: var(--main-font-color);
 	}
 </style>
