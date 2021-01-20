@@ -5,7 +5,7 @@
 	import userStore from '../stores/user-store';
 
 	onMount(() => {
-		layoutStore.setNavHeader(true, 'Complete My Profile', '/dashboard');
+		layoutStore.setNavHeader(true, 'Complete My Profile', '/client/dashboard');
 		layoutStore.updateTermsVisibility(false);
 	});
 
