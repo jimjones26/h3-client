@@ -12,7 +12,7 @@
 		layoutStore.setNavHeader(false, null);
 		layoutStore.updateTermsVisibility(true);
 		if ($session.authenticated) {
-			goto('/dashboard');
+			goto('/client/dashboard');
 		}
 	});
 

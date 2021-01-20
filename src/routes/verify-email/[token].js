@@ -18,7 +18,7 @@ export const get = async (req, res) => {
 			createRefreshCookie(tokens.refreshToken)
 		]);
 		// redirect to main page for user
-		let url = '/dashboard';
+		let url = '/client/dashboard';
 		let str = `Redirecting to ${url}`;
 		res.writeHead(302, {
 			Location: url,
