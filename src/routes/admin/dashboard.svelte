@@ -1,1 +1,68 @@
-admin dashboard
+<script>
+	import {onMount} from 'svelte';
+	import {stores} from '@sapper/app';
+
+	import layoutStore from '../../stores/layout-store';
+
+	import PrimaryNavItem from '../../components/PrimaryNavItem.svelte';
+
+	onMount(() => {
+		layoutStore.setNavHeader(false, null);
+	});
+
+	const {session} = stores();
+</script>
+
+<svelte:head>
+	<title>Heart Healing Hub - Admin Dashboard</title>
+</svelte:head>
+<div class="dashboard-container">
+	<div class="title">Hi, {$session.profile.firstName}</div>
+	<div class="p1">Welcome back. What would you like to do today?</div>
+	<nav>
+		<PrimaryNavItem
+			navText="Invite a New Practitioner"
+			urlPath="/admin/invite"
+			navDescription="Send an email to a Practitioner so they can participate in H3." />
+
+		<PrimaryNavItem
+			navText="Logout"
+			urlPath="/logout"
+			navDescription="End your session on this and any other device you may have logged into." />
+	</nav>
+	{#if $session.profile.firstVisit}
+		<div class="footer">
+			You must complete your profile before you can continue. If you don’t have
+			time now, you can come back later and finish.
+		</div>
+	{/if}
+</div>
+
+<style>
+	.dashboard-container {
+		display: grid;
+		grid-template-rows: auto auto 1fr auto;
+		margin-right: 50px;
+		margin-left: 50px;
+		margin-bottom: 32px;
+		margin-top: 40px;
+	}
+	.title {
+		font-size: 48px;
+		line-height: 52px;
+		margin-bottom: 19px;
+		text-transform: capitalize;
+	}
+	.p1 {
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 28px;
+		margin-bottom: 53px;
+	}
+	.footer {
+		font-size: 16px;
+		align-self: end;
+		justify-self: center;
+		text-align: center;
+	}
+</style>
