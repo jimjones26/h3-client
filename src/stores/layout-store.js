@@ -21,10 +21,6 @@ const customLayoutStore = {
 	},
 
 	setNavHeader: (showNavHeader, headerText, referringUrl) => {
-		console.log('SET NAV HEADER');
-		// set visibility to true or false
-		// add referring url to array
-		// set the header text
 		layoutStore.update(currentState => {
 			return {...currentState, showNavHeader, headerText, referringUrl};
 		});
