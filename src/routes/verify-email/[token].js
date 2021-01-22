@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import {post} from '../../utils/post';
 import {
 	createAccessCookie,
@@ -17,8 +18,18 @@ export const get = async (req, res) => {
 			createAccessCookie(tokens.accessToken),
 			createRefreshCookie(tokens.refreshToken)
 		]);
-		// redirect to main page for user
-		let url = '/clients/dashboard';
+
+		let url;
+		let user = jwt.decode(tokens.accessToken);
+
+		if (user.scope[0] === 'client') {
+			url = '/clients/dashboard';
+		} else if (user.scope[0] === 'practitioner') {
+			url = '/practitioners/dashboard';
+		} else if (user.scope[0] === 'admin') {
+			url = '/admin/dashboard';
+		}
+
 		let str = `Redirecting to ${url}`;
 		res.writeHead(302, {
 			Location: url,
