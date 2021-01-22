@@ -27,7 +27,7 @@
 		{#if $session.profile.firstVisit}
 			<PrimaryNavItem
 				navText="Complete My Profile"
-				urlPath="/complete-profile"
+				urlPath="/clients/complete-profile"
 				navDescription="This will only take a few minutes. Let's get started." />
 		{:else}
 			<PrimaryNavItem

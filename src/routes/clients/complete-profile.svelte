@@ -1,8 +1,8 @@
 <script>
 	import {onMount} from 'svelte';
 	import {stores} from '@sapper/app';
-	import layoutStore from '../stores/layout-store';
-	import userStore from '../stores/user-store';
+	import layoutStore from '../../stores/layout-store';
+	import userStore from '../../stores/user-store';
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Complete My Profile', '/clients/dashboard');
