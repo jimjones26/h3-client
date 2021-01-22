@@ -40,7 +40,7 @@
 			navDescription="Did you register an account already? Click here to enter your login information." />
 		<PrimaryNavItem
 			navText="Create a New Account"
-			urlPath="/create"
+			urlPath="/clients/create"
 			navDescription="Setup a new account and get started!" />
 	</nav>
 </div>

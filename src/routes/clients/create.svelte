@@ -1,8 +1,8 @@
 <script>
 	import {onMount} from 'svelte';
-	import authStore from '../stores/auth-store';
-	import layoutStore from '../stores/layout-store';
-	import {validateEmail} from '../utils/validateEmail';
+	import authStore from '../../stores/auth-store';
+	import layoutStore from '../../stores/layout-store';
+	import {validateEmail} from '../../utils/validateEmail';
 
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Create New Account', '/');
