@@ -28,7 +28,7 @@
 	}
 	.header-text {
 		font-size: 24px;
-		font-weight: 500;
+		font-weight: bold;
 		align-self: center;
 		margin-bottom: 1px;
 	}
