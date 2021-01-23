@@ -8,6 +8,7 @@
 
 	onMount(() => {
 		layoutStore.setNavHeader(false, null);
+		layoutStore.updateTermsVisibility(true);
 	});
 
 	const {session} = stores();
