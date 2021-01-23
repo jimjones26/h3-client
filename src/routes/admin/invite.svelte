@@ -1,11 +1,13 @@
 <script>
-	// allow admin to enter an email of the person they would like to invite
-	// the id of the admin needs to be tied to the person
-	// check the database for existing user, if already in db let admin know
-	// if its a new email, continue
-	// create a magic link and sent it to the email provided
+	// create a new user with the email provided
+	// send a invite link, which basically just logs the user in (updated time?)
+	// invite token has a longer life
+	// when user clicks email, invite token is checked
+	// if valid token, user logs in
+	// allow admin to resend invite link if needed, which would do the whole process over
 
 	import {onMount} from 'svelte';
+
 	import authStore from '../../stores/auth-store';
 	import layoutStore from '../../stores/layout-store';
 	import {validateEmail} from '../../utils/validateEmail';
@@ -23,8 +25,7 @@
 	$: isValid = validateEmail(email);
 
 	function login() {
-		//authStore.login(email);
-		console.log('practitioner email: ', email);
+		authStore.invitePractitioner(email);
 	}
 </script>
 

@@ -79,6 +79,30 @@ const customAuthStore = {
 			});
 			layoutStore.updateLoadingState(false, null);
 		}
+	},
+
+	/* Invite Practitioner */
+	invitePractitioner: async email => {
+		layoutStore.updateLoadingState(true, `Sending an invite link to ${email}.`);
+		try {
+			const request = await post(
+				'http://localhost:5000/api/v1/users/invite-practitioner',
+				{
+					email
+				}
+			);
+			if (request.status === 'success') {
+				await authStore.update(currentState => {
+					return {...currentState, emailSent: true};
+				});
+				await layoutStore.updateLoadingState(false, null);
+				goto('/admin/invite-sent');
+			} else {
+				throw new Error('Could not send the invite.');
+			}
+		} catch (error) {
+			console.log('error: ', error);
+		}
 	}
 };
 
