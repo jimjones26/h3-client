@@ -54,16 +54,4 @@
 		margin-bottom: 32px;
 		margin-top: 40px;
 	}
-	.title {
-		font-size: 48px;
-		line-height: 52px;
-		margin-bottom: 19px;
-		text-transform: capitalize;
-	}
-	.p1 {
-		font-size: 24px;
-		font-weight: 300;
-		line-height: 28px;
-		margin-bottom: 53px;
-	}
 </style>

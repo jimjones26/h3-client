@@ -66,9 +66,6 @@
 		margin-top: 40px;
 	}
 	.p1 {
-		font-size: 24px;
-		font-weight: 400;
-		line-height: 28px;
 		margin-bottom: 19px;
 	}
 	.footnote {

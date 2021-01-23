@@ -127,13 +127,6 @@
 		padding: 0px;
 		font-size: 20px;
 	}
-	.p1 {
-		font-size: 24px;
-		font-weight: 400;
-		line-height: 28px;
-		margin-bottom: 19px;
-		margin-bottom: 53px;
-	}
 	.button-icon {
 		vertical-align: middle;
 		margin-bottom: 2px;
