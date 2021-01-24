@@ -14,7 +14,7 @@
 	<PrimaryNavItem
 		navText="Back to my Dashboard"
 		urlPath="/admin/dashboard"
-		navDescription="This will only take a few minutes. Let's get started." />
+		navDescription="" />
 </div>
 
 <style>
