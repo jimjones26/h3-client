@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>Heart Healing Hub</title>
+	<title>Heart Healing Hub- Client Dashboard</title>
 </svelte:head>
 <div class="dashboard-container">
 	<div class="title">Hi, {$session.profile.firstName}</div>
