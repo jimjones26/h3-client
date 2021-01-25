@@ -1,8 +1,10 @@
 import {deleteAccessCookie} from '../utils/create-cookie';
 
 export async function get(req, res) {
+	const path = req.query.path;
+	console.log('REQUEST: ', path);
 	res.setHeader('Set-Cookie', [deleteAccessCookie()]);
-	let url = '/clients/dashboard';
+	let url = `/${path}/dashboard`;
 	let str = `Redirecting to ${url}`;
 	res.writeHead(302, {
 		Location: url,

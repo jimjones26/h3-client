@@ -7,3 +7,11 @@ mutation CompleteUserProfile($id: Int!, $genderPreference: String!, $appointment
     }
   }  
 `;
+
+export const COMPLETE_PRACTITIONER_PROFILE = `
+
+`;
+
+export const COMPLETE_EXTENDED_PRACTITIONER_PROFILE = `
+
+`;

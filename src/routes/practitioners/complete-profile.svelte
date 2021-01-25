@@ -13,8 +13,11 @@
 		layoutStore.updateTermsVisibility(false);
 	});
 
+	const {session} = stores();
+
 	let step = 0;
 
+	let id = $session.profile.id;
 	let firstName;
 	let lastName;
 	let phoneNumber;
@@ -24,7 +27,8 @@
 	let state;
 	let zip;
 
-	$: user = {
+	$: practitioner = {
+		id,
 		firstName,
 		lastName,
 		phoneNumber,
@@ -34,8 +38,6 @@
 		state,
 		zip
 	};
-
-	const {session} = stores();
 
 	$: backButtonVisible = () => {
 		if (step === 1 || step === 2 || step === 3) {
@@ -68,8 +70,10 @@
 		step--;
 	}
 
-	function save() {
-		console.log('USER: ', user);
+	async function save() {
+		console.log('USER: ', practitioner);
+		await userStore.completePractitionerProfile(practitioner);
+		await userStore.completeExtendedPractitionerProfile(practitioner);
 	}
 </script>
 
