@@ -19,5 +19,9 @@ mutation UpdatePractitionerProfile($id: Int!, $firstName: String!, $lastName: St
 `;
 
 export const COMPLETE_EXTENDED_PRACTITIONER_PROFILE = `
-
+mutation InsertExtendedPractitionerProfile($id: Int!, $businessName: String!, $address: String!, $city: String!, $state: String!, $zip: String!) {
+  insert_h3_practitioners_one(object: {user_id: $id, business_name: $businessName, address: $address, city: $city, state: $state, zip: $zip}) {
+    user_id
+  }
+}
 `;
