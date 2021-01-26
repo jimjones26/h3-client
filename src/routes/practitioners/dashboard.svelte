@@ -38,9 +38,13 @@
 				navDescription="This will only take a few minutes. Let's get started." />
 		{:else}
 			<PrimaryNavItem
-				navText="Find a Practitioner"
-				urlPath="/dashboard"
-				navDescription="Suspendisse orci pellentesque at sollicitudin malesuada amet cursus dictum faucibus." />
+				navText="Setup My Practice"
+				urlPath="/practitioners/practice-parameters"
+				navDescription="Setup your standard hourly fee and session time, as well as your focus and a short biography." />
+			<PrimaryNavItem
+				navText="Edit My Profile"
+				urlPath="/practitioners/edit-profile"
+				navDescription="Change your name, address, or phone number." />
 		{/if}
 		<PrimaryNavItem
 			navText="Logout"
