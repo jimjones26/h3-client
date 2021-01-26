@@ -12,7 +12,13 @@
 		layoutStore.setNavHeader(false, null);
 		layoutStore.updateTermsVisibility(true);
 		if ($session.authenticated) {
-			goto('/clients/dashboard');
+			if ($session.profile.scope[0] === 'client') {
+				goto('/clients/dashboard');
+			} else if ($session.profile.scope[0] === 'practitioner') {
+				goto('/practitioners/dashboard');
+			} else if ($session.profile.scope[0] === 'admin') {
+				goto('/admin/dashboard');
+			}
 		}
 	});
 
@@ -22,6 +28,7 @@
 <svelte:head>
 	<title>Heart Healing Hub</title>
 </svelte:head>
+
 <div class="index-container">
 	<div class="title">Hello!</div>
 	<div class="p1">
