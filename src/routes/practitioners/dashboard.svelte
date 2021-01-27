@@ -28,6 +28,9 @@
 	<div class="p1">
 		{#if $session.profile.firstVisit}
 			We need you to answer a few questions so we can complete your profile.
+		{:else if !$session.profile.setupComplete}
+			Lets get your Practice setup and published in our system so Clients can
+			find you.
 		{:else}Welcome back. What would you like to do today?{/if}
 	</div>
 	<nav>
@@ -36,11 +39,12 @@
 				navText="Complete My Profile"
 				urlPath="/practitioners/complete-profile"
 				navDescription="This will only take a few minutes. Let's get started." />
-		{:else}
+		{:else if !$session.profile.firstVisit && !$session.profile.setupComplete}
 			<PrimaryNavItem
 				navText="Setup My Practice"
 				urlPath="/practitioners/practice-parameters"
 				navDescription="Setup your standard hourly fee and session time, as well as your focus and a short biography." />
+		{:else if !$session.profile.firstVisit && $session.profile.setupComplete}
 			<PrimaryNavItem
 				navText="Edit My Profile"
 				urlPath="/practitioners/edit-profile"
