@@ -42,7 +42,7 @@
 		{:else if !$session.profile.firstVisit && !$session.profile.setupComplete}
 			<PrimaryNavItem
 				navText="Setup My Practice"
-				urlPath="/practitioners/practice-parameters"
+				urlPath="/practitioners/setup-practice"
 				navDescription="Setup your standard hourly fee and session time, as well as your focus and a short biography." />
 		{:else if !$session.profile.firstVisit && $session.profile.setupComplete}
 			<PrimaryNavItem
