@@ -24,6 +24,16 @@
 	let experience;
 	let biography;
 
+	$: practiceInfo = {
+		id,
+		sessionFee,
+		sessionTime,
+		mainFocus,
+		denominationalAffiliation,
+		experience,
+		biography
+	};
+
 	$: backButtonVisible = () => {
 		if (step === 1 || step === 2 || step === 3 || step === 4) {
 			return true;
@@ -57,7 +67,7 @@
 	};
 
 	async function save() {
-		console.log('save');
+		console.log('save: ', practiceInfo);
 	}
 </script>
 
@@ -147,5 +157,9 @@
 		margin-bottom: 2px;
 		width: 24px;
 		height: 24px;
+	}
+
+	textarea:focus {
+		outline: none;
 	}
 </style>
