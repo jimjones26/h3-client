@@ -46,9 +46,9 @@
 				navDescription="Setup your standard hourly fee and session time, as well as your focus and a short biography." />
 		{:else if !$session.profile.firstVisit && $session.profile.setupComplete}
 			<PrimaryNavItem
-				navText="Edit My Profile"
-				urlPath="/practitioners/edit-profile"
-				navDescription="Change your name, address, or phone number." />
+				navText="Edit My Information"
+				urlPath="/practitioners/edit-information"
+				navDescription="Change your name, address, or phone number, or update the particulars of your practice." />
 		{/if}
 		<PrimaryNavItem
 			navText="Logout"
