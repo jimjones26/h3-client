@@ -2,6 +2,7 @@
 	import {onMount} from 'svelte';
 	import {stores} from '@sapper/app';
 	import layoutStore from '../../stores/layout-store';
+	import practitionerStore from '../../stores/practitioner-store';
 
 	onMount(() => {
 		layoutStore.setNavHeader(
@@ -16,20 +17,20 @@
 
 	let step = 0;
 
-	let id = $session.profile.id;
+	let userId = $session.profile.id;
 	let sessionFee;
 	let sessionTime;
 	let mainFocus;
-	let denominationalAffiliation;
+	let affiliation;
 	let experience;
 	let biography;
 
 	$: practiceInfo = {
-		id,
+		userId,
 		sessionFee,
 		sessionTime,
 		mainFocus,
-		denominationalAffiliation,
+		affiliation,
 		experience,
 		biography
 	};
@@ -68,6 +69,7 @@
 
 	async function save() {
 		console.log('save: ', practiceInfo);
+		practitionerStore.completePracticeSetup(practiceInfo);
 	}
 </script>
 
@@ -98,7 +100,7 @@
 		<div>
 			<textarea
 				type="text"
-				bind:value={denominationalAffiliation}
+				bind:value={affiliation}
 				placeholder="denominational affiliation" />
 		</div>
 	{:else if step === 3}
