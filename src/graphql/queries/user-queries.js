@@ -25,3 +25,17 @@ mutation InsertExtendedPractitionerProfile($id: Int!, $businessName: String!, $a
   }
 }
 `;
+
+export const RETRIEVE_ALL_PRACTITIONERS = `
+query MyQuery {
+  h3_practitioners {
+    user {
+      first_name
+      last_name
+      id
+    }
+    session_fee
+    session_time
+  }
+}
+`;

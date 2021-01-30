@@ -33,7 +33,7 @@
 		{:else}
 			<PrimaryNavItem
 				navText="Find a Practitioner"
-				urlPath="/dashboard"
+				urlPath="/clients/find-practitioner"
 				navDescription="Suspendisse orci pellentesque at sollicitudin malesuada amet cursus dictum faucibus." />
 		{/if}
 		<PrimaryNavItem

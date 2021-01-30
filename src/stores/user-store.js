@@ -5,12 +5,15 @@ import {gqlQuery} from '../graphql';
 import {
 	COMPLETE_USER_PROFILE,
 	COMPLETE_PRACTITIONER_PROFILE,
-	COMPLETE_EXTENDED_PRACTITIONER_PROFILE
+	COMPLETE_EXTENDED_PRACTITIONER_PROFILE,
+	RETRIEVE_ALL_PRACTITIONERS
 } from '../graphql/queries/user-queries';
 
 import layoutStore from '../stores/layout-store';
 
-const userStore = writable({});
+const userStore = writable({
+	practitioners: []
+});
 
 const customUserStore = {
 	subscribe: userStore.subscribe,
@@ -60,6 +63,27 @@ const customUserStore = {
 		})
 			.then(() => {
 				goto('/refresh-session?path=practitioners');
+			})
+			.catch(error => {
+				console.log('ERROR: ', error);
+			});
+	},
+
+	/* Retrieve List of Practitioners */
+	retrieveAllPractitioners: async () => {
+		layoutStore.updateLoadingState(
+			true,
+			'Retreiving list of practitioners from database.'
+		);
+
+		await gqlQuery(RETRIEVE_ALL_PRACTITIONERS)
+			.then(resAsJson => {
+				userStore.update(currentState => {
+					return {
+						...currentState,
+						practitioners: resAsJson.data.h3_practitioners
+					};
+				});
 			})
 			.catch(error => {
 				console.log('ERROR: ', error);
