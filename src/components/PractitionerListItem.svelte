@@ -2,7 +2,7 @@
 	export let practitioner;
 </script>
 
-<a href="">
+<a href="/">
 	<div class="nav-header">
 		{practitioner.user.first_name}
 		{practitioner.user.last_name}<svg class="button-icon">
@@ -15,7 +15,7 @@
 	</div>
 	<div class="modalities">
 		<strong>HH Modalities:</strong>
-		Family, Marriage, Single, Trauma, Heart Healing, Another Modality
+		{practitioner.modalities}
 	</div>
 </a>
 

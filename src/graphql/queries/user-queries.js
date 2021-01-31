@@ -36,6 +36,8 @@ query MyQuery {
     }
     session_fee
     session_time
+    modalities
   }
 }
+
 `;
