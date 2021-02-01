@@ -18,6 +18,7 @@
 	let step = 0;
 
 	let userId = $session.profile.id;
+	let modalities;
 	let sessionFee;
 	let sessionTime;
 	let mainFocus;
@@ -27,6 +28,7 @@
 
 	$: practiceInfo = {
 		userId,
+		modalities,
 		sessionFee,
 		sessionTime,
 		mainFocus,
