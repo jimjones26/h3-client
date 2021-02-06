@@ -27,7 +27,7 @@ mutation InsertExtendedPractitionerProfile($id: Int!, $businessName: String!, $a
 `;
 
 export const RETRIEVE_ALL_PRACTITIONERS = `
-query MyQuery {
+query RetrieveAllPractitioners {
   h3_practitioners {
     user {
       first_name
@@ -39,5 +39,24 @@ query MyQuery {
     modalities
   }
 }
+`;
 
+export const GET_PRACTITIONER_PROFILE_BY_ID = `
+query GetPractitionerProfileById($id: Int!) {
+  h3_practitioners(where: {user_id: {_eq: $id}}) {
+    user {
+      first_name
+      last_name
+    }
+    session_fee
+    session_time
+    modalities
+    main_focus
+    experience
+    zip
+    biography
+    affiliation
+    business_name
+  }
+}
 `;

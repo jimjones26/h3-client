@@ -6,7 +6,8 @@ import {
 	COMPLETE_USER_PROFILE,
 	COMPLETE_PRACTITIONER_PROFILE,
 	COMPLETE_EXTENDED_PRACTITIONER_PROFILE,
-	RETRIEVE_ALL_PRACTITIONERS
+	RETRIEVE_ALL_PRACTITIONERS,
+	GET_PRACTITIONER_PROFILE_BY_ID
 } from '../graphql/queries/user-queries';
 
 import layoutStore from '../stores/layout-store';
@@ -82,6 +83,26 @@ const customUserStore = {
 					return {
 						...currentState,
 						practitioners: resAsJson.data.h3_practitioners
+					};
+				});
+			})
+			.catch(error => {
+				console.log('ERROR: ', error);
+			});
+	},
+
+	/* Get a Single Practitioner by ID */
+	getPractitionerProfileById: async id => {
+		layoutStore.updateLoadingState(true, 'Retrieving a single practitioner.');
+
+		await gqlQuery(GET_PRACTITIONER_PROFILE_BY_ID, {
+			id: id
+		})
+			.then(resAsJson => {
+				userStore.update(currentState => {
+					return {
+						...currentState,
+						selectedPractitioner: resAsJson.data.h3_practitioners
 					};
 				});
 			})

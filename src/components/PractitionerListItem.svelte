@@ -2,7 +2,7 @@
 	export let practitioner;
 </script>
 
-<a href="/">
+<a href="/clients/practitioner-profile/{practitioner.user.id}">
 	<div class="nav-header">
 		{practitioner.user.first_name}
 		{practitioner.user.last_name}<svg class="button-icon">
