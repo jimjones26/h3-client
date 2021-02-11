@@ -13,7 +13,8 @@ import {
 import layoutStore from '../stores/layout-store';
 
 const userStore = writable({
-	practitioners: []
+	practitioners: [],
+	selectedPractitioner: null
 });
 
 const customUserStore = {
