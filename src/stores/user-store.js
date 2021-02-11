@@ -100,13 +100,10 @@ const customUserStore = {
 			id: id
 		})
 			.then(resAsJson => {
-				const selectedPractitioner = {
-					firstName: resAsJson.data.h3_practitioners[0].user.first_name
-				};
 				userStore.update(currentState => {
 					return {
 						...currentState,
-						selectedPractitioner: selectedPractitioner
+						selectedPractitioner: resAsJson.data.h3_practitioners[0]
 					};
 				});
 			})
