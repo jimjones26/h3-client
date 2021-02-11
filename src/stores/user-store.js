@@ -100,16 +100,29 @@ const customUserStore = {
 			id: id
 		})
 			.then(resAsJson => {
+				const selectedPractitioner = {
+					firstName: resAsJson.data.h3_practitioners[0].user.first_name
+				};
 				userStore.update(currentState => {
 					return {
 						...currentState,
-						selectedPractitioner: resAsJson.data.h3_practitioners
+						selectedPractitioner: selectedPractitioner
 					};
 				});
 			})
 			.catch(error => {
 				console.log('ERROR: ', error);
 			});
+	},
+
+	/* Clear Selected Practitioner */
+	clearSelectedPractitioner: async () => {
+		userStore.update(currentState => {
+			return {
+				...currentState,
+				selectedPractitioner: null
+			};
+		});
 	}
 };
 
