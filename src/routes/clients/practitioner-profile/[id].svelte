@@ -3,6 +3,7 @@
 	import {stores} from '@sapper/app';
 	import userStore from '../../../stores/user-store';
 	import layoutStore from '../../../stores/layout-store';
+	import SecondaryNavItem from '../../../components/SecondaryNavItem.svelte';
 
 	onMount(async () => {
 		await userStore
@@ -40,7 +41,19 @@
 			<p>{practitioner.affiliation}</p>
 			<p>{practitioner.biography}</p>
 		</div>
-		<div>buttons</div>
+		<div>
+			<SecondaryNavItem
+				navText="add to favorites"
+				urlPath="/clients/complete-profile"
+				navDescription={`Not ready to make a decision on ${practitioner.user.first_name}? Add to your favorites and review later.`}
+				canToggle={true}
+				isFavorite={false} />
+			<SecondaryNavItem
+				navText="request appointment"
+				urlPath="/clients/complete-profile"
+				navDescription="Have you made your decision?
+				Lets get your appointment scheduled." />
+		</div>
 	{/if}
 </div>
 
