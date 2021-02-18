@@ -27,6 +27,12 @@
 
 	let practitioner;
 	$: practitioner = $userStore.selectedPractitioner;
+
+	/* let isFavorite = false;
+
+	function toggleFavorite() {
+		isFavorite = !isFavorite;
+	} */
 </script>
 
 <svelte:head>
@@ -42,12 +48,13 @@
 			<p>{practitioner.biography}</p>
 		</div>
 		<div>
-			<SecondaryNavItem
-				navText="add to favorites"
+			<!-- <SecondaryNavItem
+				navText={isFavorite ? 'remove from favorites' : 'add to favorites'}
 				urlPath="/clients/complete-profile"
-				navDescription={`Not ready to make a decision on ${practitioner.user.first_name}? Add to your favorites and review later.`}
+				navDescription={` ${isFavorite ? 'Remove' : 'Add'} ${practitioner.user.first_name} to your favorites.`}
 				canToggle={true}
-				isFavorite={false} />
+				{isFavorite}
+				on:toggleFavorite={toggleFavorite} /> -->
 			<SecondaryNavItem
 				navText="request appointment"
 				urlPath="/clients/complete-profile"

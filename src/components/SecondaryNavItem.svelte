@@ -1,13 +1,19 @@
 <script>
+	import {createEventDispatcher} from 'svelte';
+
 	export let navText = null;
 	export let urlPath = null;
 	export let navDescription = null;
 	export let canToggle = false;
 	export let isFavorite = null;
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <!-- if this is a toggle link,on click will fire the toggleValue function and change the icon -->
-<a href={urlPath}>
+<a
+	href={canToggle ? '#' : urlPath}
+	on:click|preventDefault={() => dispatch('toggleFavorite')}>
 	<div class="nav-header">
 		{navText}<svg class="button-icon">
 			{#if canToggle === true}
