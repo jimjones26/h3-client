@@ -7,6 +7,7 @@
 	onMount(() => {
 		layoutStore.setNavHeader(true, 'Find a Practitioner', '/clients/dashboard');
 		layoutStore.updateTermsVisibility(false);
+		userStore.clearSelectedPractitioner();
 	});
 
 	if (process.browser) {

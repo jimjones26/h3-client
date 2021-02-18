@@ -11,9 +11,7 @@
 </script>
 
 <!-- if this is a toggle link,on click will fire the toggleValue function and change the icon -->
-<a
-	href={canToggle ? '#' : urlPath}
-	on:click|preventDefault={() => dispatch('toggleFavorite')}>
+<a href={urlPath}>
 	<div class="nav-header">
 		{navText}<svg class="button-icon">
 			{#if canToggle === true}

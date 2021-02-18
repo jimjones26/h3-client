@@ -45,6 +45,7 @@ export const GET_PRACTITIONER_PROFILE_BY_ID = `
 query GetPractitionerProfileById($id: Int!) {
   h3_practitioners(where: {user_id: {_eq: $id}}) {
     user {
+      id
       first_name
       last_name
     }

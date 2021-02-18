@@ -1,5 +1,5 @@
 <script>
-	import {onMount, onDestroy} from 'svelte';
+	import {onMount} from 'svelte';
 	import {stores} from '@sapper/app';
 	import userStore from '../../../stores/user-store';
 	import layoutStore from '../../../stores/layout-store';
@@ -20,10 +20,6 @@
 	});
 
 	const {page} = stores();
-
-	onDestroy(() => {
-		userStore.clearSelectedPractitioner();
-	});
 
 	let practitioner;
 	$: practitioner = $userStore.selectedPractitioner;
@@ -57,14 +53,13 @@
 				on:toggleFavorite={toggleFavorite} /> -->
 			<SecondaryNavItem
 				navText="request appointment"
-				urlPath="/clients/complete-profile"
+				urlPath="/clients/request-appointment/{$userStore.selectedPractitioner.user.id}"
 				navDescription="Have you made your decision?
 				Lets get your appointment scheduled." />
 		</div>
 	{/if}
 </div>
 
-<!-- {JSON.stringify($userStore.selectedPractitioner)} -->
 <style>
 	.detail-container {
 		display: grid;
