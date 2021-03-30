@@ -30,9 +30,12 @@
 
 <div class="detail-container">
 	{#if practitioner}
-		you are requesting an appointment with
-		{practitioner.user.first_name}
-		{practitioner.user.last_name}
+		<div class="p1">
+			You are requesting an appointment with
+			<span class="bold">{practitioner.user.first_name}
+				{practitioner.user.last_name}</span>. Please make your payment for the
+			session.
+		</div>
 	{/if}
 </div>
 
@@ -45,9 +48,7 @@
 		margin-bottom: 32px;
 		margin-top: 40px;
 	}
-
-	p {
-		padding: 0;
-		margin: 0;
+	.bold {
+		font-weight: bold;
 	}
 </style>
