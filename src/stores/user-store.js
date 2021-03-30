@@ -97,7 +97,7 @@ const customUserStore = {
 		layoutStore.updateLoadingState(true, 'Retrieving a single practitioner.');
 
 		await gqlQuery(GET_PRACTITIONER_PROFILE_BY_ID, {
-			id: id
+			id: parseInt(id)
 		})
 			.then(resAsJson => {
 				userStore.update(currentState => {
